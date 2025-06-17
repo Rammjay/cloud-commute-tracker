@@ -1,0 +1,6 @@
+.history/
+.git/
+node_modules/
+*.log
+.DS_Store
+cloud-commute-tracker/ 
