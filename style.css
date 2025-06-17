@@ -10,7 +10,6 @@ body, html {
   width: 100%;
   overflow: hidden;
   font-family: 'Arial', sans-serif;
-  position: relative;
 }
 
 /* Make map fullscreen */
@@ -29,28 +28,22 @@ body, html {
   top: 20px;
   left: 20px;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
-  width: calc(100% - 40px);
-  max-height: calc(100vh - 40px);
-  overflow-y: auto;
   backdrop-filter: blur(5px);
 }
 
 /* Style for input fields */
-input[type="text"], 
-input[type="email"], 
-input[type="password"], 
-select {
+input[type="text"], select {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   margin: 5px 0;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .input-group {
@@ -68,36 +61,30 @@ select {
   align-items: center;
   cursor: pointer;
   user-select: none;
-  font-size: 14px;
 }
 
 .checkbox-group input[type="checkbox"] {
   margin-right: 8px;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 
-/* Style for buttons */
+/* Style for the button */
 button {
   width: 100%;
-  padding: 14px;
+  padding: 12px;
   background: #4CAF50;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  margin-top: 10px;
-  transition: all 0.3s ease;
+  margin-top: 0px;
+  transition: background 0.3s ease;
 }
 
 button:hover {
   background: #45a049;
-  transform: translateY(-1px);
-}
-
-button:active {
-  transform: translateY(1px);
 }
 
 /* Route options container */
@@ -106,12 +93,12 @@ button:active {
   top: 20px;
   right: 20px;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: calc(100% - 40px);
+  max-width: 340px;
+  width: 22%;
   max-height: calc(100vh - 40px);
   overflow-y: auto;
   backdrop-filter: blur(5px);
@@ -122,25 +109,18 @@ button:active {
 .start-commute-btn {
   background: #2196F3;
   color: white;
-  padding: 14px;
+  padding: 12px 24px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   margin-top: 15px;
   width: 100%;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .start-commute-btn:hover {
   background: #1976D2;
-  transform: translateY(-1px);
-}
-
-.start-commute-btn:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-  transform: none;
 }
 
 /* Route details styling */
@@ -151,12 +131,6 @@ button:active {
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e0e0;
-  transition: all 0.3s ease;
-}
-
-.route-details:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .route-details h3 {
@@ -174,7 +148,6 @@ button:active {
   color: #4CAF50;
   font-weight: bold;
   margin: 8px 0;
-  font-size: 16px;
 }
 
 .route-analysis {
@@ -188,11 +161,36 @@ button:active {
 }
 
 .route-analysis li {
-  margin: 8px 0;
-  line-height: 1.4;
+  margin: 5px 0;
 }
 
-/* Location input styling */
+/* Radio button styling */
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Label styling */
+label {
+  display: block;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .floating-container, #route-options {
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+  }
+  
+  #route-options {
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    max-height: 40vh;
+  }
+}
+
 .location-input-wrapper {
   display: flex;
   gap: 10px;
@@ -208,167 +206,137 @@ button:active {
   color: white;
   border: none;
   border-radius: 5px;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   padding: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
 .location-btn:hover {
   background: #45a049;
-  transform: translateY(-1px);
 }
 
 .location-btn svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
-/* Modal styling */
+/* Login Modal */
 .modal {
-  display: none;
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(5px);
+  z-index: 1000;
 }
 
 .modal-content {
   background: white;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  width: 90%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
   max-width: 400px;
 }
 
-/* User profile styling */
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.login-btn, .register-btn {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.login-btn {
+  background: #4CAF50;
+  color: white;
+}
+
+.login-btn:hover {
+  background: #45a049;
+}
+
+.register-btn {
+  background: #2196F3;
+  color: white;
+}
+
+.register-btn:hover {
+  background: #1976D2;
+}
+
+/* User Profile - Now inside floating container */
 .user-profile {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .profile-content {
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 #userName {
-  font-size: 18px;
   font-weight: bold;
+  font-size: 16px;
   color: #333;
-  margin-bottom: 10px;
-  display: block;
 }
 
 .emissions-summary {
-  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0;
 }
 
 .emission-stat {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 0;
-  padding: 8px;
-  background: #f5f5f5;
+  font-size: 14px;
+}
+
+.stat-label {
+  color: #666;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+.logout-btn {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
   border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+  width: 100%;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-  .floating-container {
-    top: 10px;
-    left: 10px;
-    width: calc(100% - 20px);
-    max-height: 60vh;
-  }
-
-  #route-options {
-    top: auto;
-    bottom: 10px;
-    right: 10px;
-    left: 10px;
-    width: calc(100% - 20px);
-    max-height: 50vh;
-  }
-
-  input[type="text"], 
-  input[type="email"], 
-  input[type="password"], 
-  select {
-    font-size: 16px; /* Prevents zoom on iOS */
-    padding: 10px;
-  }
-
-  .route-details {
-    padding: 15px;
-  }
-
-  .route-analysis {
-    font-size: 13px;
-  }
-
-  .modal-content {
-    width: calc(100% - 40px);
-    padding: 20px;
-  }
-}
-
-/* Small screen optimization */
-@media (max-width: 480px) {
-  .floating-container {
-    padding: 15px;
-  }
-
-  .route-details h3 {
-    font-size: 16px;
-  }
-
-  .emission {
-    font-size: 14px;
-  }
-
-  .location-btn {
-    width: 36px;
-    height: 36px;
-  }
-
-  .checkbox-group label {
-    font-size: 13px;
-  }
-}
-
-/* Landscape mode optimization */
-@media (max-height: 600px) and (orientation: landscape) {
-  .floating-container {
-    max-height: 80vh;
-  }
-
-  #route-options {
-    max-height: 70vh;
-  }
-
-  .input-group {
-    margin-bottom: 10px;
-  }
-}
-
-/* Touch device optimization */
-@media (hover: none) {
-  button:hover,
-  .route-details:hover {
-    transform: none;
-  }
+.logout-btn:hover {
+  background: #d32f2f;
 }
