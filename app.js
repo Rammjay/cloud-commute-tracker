@@ -1,3 +1,6 @@
+// Use configuration from config.js
+const GOOGLE_MAPS_API_KEY = config.GOOGLE_MAPS_API_KEY;
+
 let map, geocoder, directionsService, directionsRenderer, elevationService, distanceMatrixService;
 let routesData = [];
 let fullDirectionsResult = null;
